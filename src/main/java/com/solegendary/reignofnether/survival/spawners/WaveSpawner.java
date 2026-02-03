@@ -151,7 +151,7 @@ public class WaveSpawner {
                 int z = building.centrePos.getZ() + random.nextInt(-MAX_SPAWN_RANGE, MAX_SPAWN_RANGE);
                 int y = level.getChunkAt(new BlockPos(x, 0, z)).getHeight(Heightmap.Types.WORLD_SURFACE, x, z);
 
-                spawnBp = MiscUtil.getHighestGroundBlock(level, new BlockPos(x, y, z));
+                spawnBp = MiscUtil.getHighestNonAirBlock(level, new BlockPos(x, y, z));
                 spawnBs = level.getBlockState(spawnBp);
                 spawnAttemptsThisBuilding += 1;
                 if (spawnAttemptsThisBuilding > 100) {
